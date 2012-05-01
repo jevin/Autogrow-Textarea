@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Autogrow Textarea Plugin</title>
+	<style>
+		body {
+			font-family: Georgia, serif;
+			font-size: 16px;
+			line-height: 1.5em;
+		}
+		p {
+			margin: 0em 0em 1.5em;
+		}
+		p.first {
+			font-size: 1.2em;
+		}
+		#content {
+			width: 980px;
+			margin: auto;
+		}
+		.quote {
+			font-style: italic;
+			color: #666;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="jquery.autogrowtextarea.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#target").autoGrow();
+		});
+	</script>
+</head>
+<body>
+	<div id="content">
+		<p class="first">
+			This is the demo page for the Autogrow Textarea plugin. You can read the <a href="http://www.technoreply.com/autogrow-textarea-plugin-version-2-0/">full blogpost here</a>.
+		</p>
+		<ol>
+			<li>
+				<p>
+					The textarea below will grow vertically as you type in some text. Go a head and give it a try:
+				</p>
+				<p><textarea id="target" cols="40" rows="4"></textarea></p>
+			</li>
+			<li>
+				<p>
+					It also works when copy/pasting text. Here's a bunch of text you can paste in the textarea:
+				</p>
+				<div class="quote">
+					<p>
+						Grab us a mullet where come a top end. As dry as a chuck a sickie piece of piss he hasn't got a coldie. As dry as a wuss heaps it'll be down under. As cross as a slab she'll be right billy. Shazza got us some ya no worries lets throw a fremantle doctor. Stands out like a freckle no dramas he's got a massive yakka. As cross as a booze bus heaps as cross as a blow in the bag.
+					</p>
+					<p>
+						Come a sheila to we're going bonza. As stands out like gobsmacked my as dry as a road train. He hasn't got a dog's balls no dramas we're going rego. You little ripper bottle-o heaps get a dog up ya your shout. As stands out like cracker with as dry as a coathanger. Stands out like a sickie my as dry as a ropeable. As stands out like sanger we're going lurk. As cross as a jumbuck mate built like a pretty spiffy. He hasn't got a bitzer to as busy as a pav. You little ripper vee dub to she'll be right mickey mouse mate. As busy as a freckle no dramas lets throw a bizzo.
+					</p>
+				</div>
+			</li>
+			<li>
+				<p>
+					Want to see how it's done? Just hit view source! It's dead simple. ;-)
+				</p>
+			</li>
+			<li>
+				<p>
+					This plugin is licensed under <a href="http://en.wikipedia.org/wiki/Beerware">Beerware License</a>. So go crazy with it, and don't forget to say thanks <a href="http://www.technoreply.com/autogrow-textarea-plugin-version-2-0/">on my blog</a>.
+				</p>
+			</li>
+		</ol>
+	</div>
+</body>
+</html>

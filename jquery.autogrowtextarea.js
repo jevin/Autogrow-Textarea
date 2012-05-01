@@ -1,8 +1,13 @@
 /*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <jevin9@gmail.com> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return. Jevin O. Sewaruth
+ * ----------------------------------------------------------------------------
+ *
  * Autogrow Textarea Plugin Version v2.0
  * http://www.technoreply.com/autogrow-textarea-plugin-version-2-0
- *
- * Copyright 2011, Jevin O. Sewaruth
  *
  * Date: March 13, 2011
  */
