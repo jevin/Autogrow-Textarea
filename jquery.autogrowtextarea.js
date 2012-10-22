@@ -6,61 +6,52 @@
  * this stuff is worth it, you can buy me a beer in return. Jevin O. Sewaruth
  * ----------------------------------------------------------------------------
  *
- * Autogrow Textarea Plugin Version v2.0
- * http://www.technoreply.com/autogrow-textarea-plugin-version-2-0
+ * Autogrow Textarea Plugin Version v3.0
+ * LINK TO COME
+ * 
+ * IF YOU LIKE THIS VERSION, PLEASE CONSIDER THE PAID ONE.
  *
- * Date: March 13, 2011
+ * Date: October 15, 2012
  */
-jQuery.fn.autoGrow = function(){
-	return this.each(function(){
-		// Variables
-		var colsDefault = this.cols;
-		var rowsDefault = this.rows;
-		
-		//Functions
-		var grow = function() {
-			growByRef(this);
-		}
-		
-		var growByRef = function(obj) {
-			var linesCount = 0;
-			var lines = obj.value.split('\n');
-			
-			for (var i=lines.length-1; i>=0; --i)
-			{
-				linesCount += Math.floor((lines[i].length / colsDefault) + 1);
-			}
 
-			if (linesCount >= rowsDefault)
-				obj.rows = linesCount + 1;
-			else
-				obj.rows = rowsDefault;
+jQuery.fn.autoGrow = function() {
+	return this.each(function() {
+
+		var createMirror = function(textarea) {
+			$(textarea).after('<div class="target-mirror"></div>');
+			return $(textarea).next('.target-mirror')[0];
 		}
-		
-		var characterWidth = function (obj){
-			var characterWidth = 0;
-			var temp1 = 0;
-			var temp2 = 0;
-			var tempCols = obj.cols;
-			
-			obj.cols = 1;
-			temp1 = obj.offsetWidth;
-			obj.cols = 2;
-			temp2 = obj.offsetWidth;
-			characterWidth = temp2 - temp1;
-			obj.cols = tempCols;
-			
-			return characterWidth;
+
+		var sendContentToMirror = function (textarea) {
+			mirror.innerHTML = textarea.value.replace(/\n/g, '<br/>') + '.<br/>.';
+			$(textarea).height($(mirror).height());
 		}
+
+		var growTextarea = function () {
+			sendContentToMirror(this);
+		}
+
+		// Create a mirror
+		var mirror = createMirror(this);
 		
-		// Manipulations
-		this.style.width = "auto";
-		this.style.height = "auto";
+		// Style the mirror
+		mirror.style.display = 'none';
+		mirror.style.wordWrap = 'break-word';
+		mirror.style.padding = $(this).css('padding');
+		mirror.style.width = $(this).css('width');
+		mirror.style.fontFamily = $(this).css('font-family');
+		mirror.style.fontSize = $(this).css('font-size');
+		mirror.style.lineHeight = $(this).css('line-height');
+
+		// Style the textarea
 		this.style.overflow = "hidden";
-		this.style.width = ((characterWidth(this) * this.cols) + 6) + "px";
-		this.onkeyup = grow;
-		this.onfocus = grow;
-		this.onblur = grow;
-		growByRef(this);
+		this.style.minHeight = this.rows+"em";
+
+		// Bind the textarea's event
+		this.onkeyup = growTextarea;
+
+		// Fire the event for text already present
+		sendContentToMirror(this);
+
 	});
 };

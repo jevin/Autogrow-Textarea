@@ -19,12 +19,19 @@
 			width: 980px;
 			margin: auto;
 		}
+		#target {
+			font-family: arial;
+			font-size: 14px;
+			width: 322px;
+		}
 		.quote {
 			font-style: italic;
 			color: #666;
 		}
+		textarea {
+		}
 	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="jquery-1.8.1.min.js"></script>
 	<script src="jquery.autogrowtextarea.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -42,7 +49,9 @@
 				<p>
 					The textarea below will grow vertically as you type in some text. Go a head and give it a try:
 				</p>
-				<p><textarea id="target" cols="40" rows="4"></textarea></p>
+				<p>
+					<textarea id="target" rows="4"></textarea>
+				</p>
 			</li>
 			<li>
 				<p>
