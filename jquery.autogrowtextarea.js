@@ -7,9 +7,10 @@
  * ----------------------------------------------------------------------------
  *
  * Autogrow Textarea Plugin Version v3.0
- * LINK TO COME
+ * http://www.technoreply.com/autogrow-textarea-plugin-3-0
  * 
- * IF YOU LIKE THIS VERSION, PLEASE CONSIDER THE PAID ONE.
+ * THIS PLUGIN IS DELIVERD ON A PAY WHAT YOU WHANT BASIS. IF THE PLUGIN WAS USEFUL TO YOU, PLEASE CONSIDER BUYING THE PLUGIN HERE :
+ * https://sites.fastspring.com/technoreply/instant/autogrowtextareaplugin
  *
  * Date: October 15, 2012
  */
@@ -18,13 +19,14 @@ jQuery.fn.autoGrow = function() {
 	return this.each(function() {
 
 		var createMirror = function(textarea) {
-			$(textarea).after('<div class="target-mirror"></div>');
-			return $(textarea).next('.target-mirror')[0];
+			jQuery(textarea).after('<div class="autogrow-textarea-mirror"></div>');
+			return jQuery(textarea).next('.autogrow-textarea-mirror')[0];
 		}
 
 		var sendContentToMirror = function (textarea) {
 			mirror.innerHTML = textarea.value.replace(/\n/g, '<br/>') + '.<br/>.';
-			$(textarea).height($(mirror).height());
+			if (jQuery(textarea).height() != jQuery(mirror).height())
+				jQuery(textarea).height(jQuery(mirror).height());
 		}
 
 		var growTextarea = function () {
@@ -37,11 +39,11 @@ jQuery.fn.autoGrow = function() {
 		// Style the mirror
 		mirror.style.display = 'none';
 		mirror.style.wordWrap = 'break-word';
-		mirror.style.padding = $(this).css('padding');
-		mirror.style.width = $(this).css('width');
-		mirror.style.fontFamily = $(this).css('font-family');
-		mirror.style.fontSize = $(this).css('font-size');
-		mirror.style.lineHeight = $(this).css('line-height');
+		mirror.style.padding = jQuery(this).css('padding');
+		mirror.style.width = jQuery(this).css('width');
+		mirror.style.fontFamily = jQuery(this).css('font-family');
+		mirror.style.fontSize = jQuery(this).css('font-size');
+		mirror.style.lineHeight = jQuery(this).css('line-height');
 
 		// Style the textarea
 		this.style.overflow = "hidden";
