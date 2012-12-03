@@ -24,9 +24,16 @@ jQuery.fn.autoGrow = function() {
 		}
 
 		var sendContentToMirror = function (textarea) {
+			var maxHeight = parseInt(jQuery(textarea).css('max-height'), 10);
+			
 			mirror.innerHTML = textarea.value.replace(/\n/g, '.<br/>.') + '.';
-			if (jQuery(textarea).height() != jQuery(mirror).height())
-				jQuery(textarea).height(jQuery(mirror).height());
+			if (jQuery(mirror).height() <= maxHeight) {
+				if (jQuery(textarea).height() != jQuery(mirror).height())
+					jQuery(textarea).height(jQuery(mirror).height());
+			} else {
+				jQuery(textarea).height(maxHeight);
+				jQuery(textarea).css('overflow', 'visible');
+			}
 		}
 
 		var growTextarea = function () {
