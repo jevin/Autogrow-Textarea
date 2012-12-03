@@ -14,53 +14,48 @@
  *
  * Date: October 15, 2012
  */
-
-jQuery.fn.autoGrow = function() {
-	return this.each(function() {
-
-		var createMirror = function(textarea) {
-			jQuery(textarea).after('<div class="autogrow-textarea-mirror"></div>');
-			return jQuery(textarea).next('.autogrow-textarea-mirror')[0];
-		}
-
-		var sendContentToMirror = function (textarea) {
-			var maxHeight = parseInt(jQuery(textarea).css('max-height'), 10);
+ (function($){
+	$.fn.autoGrow = function(){
+		return this.each(function(){
+			var txtArea = $(this);
+			var fakeDiv = $('<div class="autogrow-textarea-mirror"></div>');
+					
+			txtArea.after(fakeDiv);		
 			
-			mirror.innerHTML = textarea.value.replace(/\n/g, '.<br/>.') + '.';
-			if (jQuery(mirror).height() <= maxHeight) {
-				if (jQuery(textarea).height() != jQuery(mirror).height())
-					jQuery(textarea).height(jQuery(mirror).height());
-			} else {
-				jQuery(textarea).height(maxHeight);
-				jQuery(textarea).css('overflow', 'visible');
-			}
-		}
+			var reloadText = function(){
+				txtArea = $(this);
+				var maxHeight = parseInt(txtArea.css('max-height'),10);
+				fakeDiv = txtArea.next('.autogrow-textarea-mirror');
+				fakeDiv.html(txtArea.val().replace(/\n/g, '<br/>'));
+				if(isNaN(maxHeight)){
+					txtArea.height(fakeDiv.height());
+				}
+				else if(fakeDiv.height() <= maxHeight){
+					txtArea.height(fakeDiv.height());
+				}
+				else{
+					txtArea.height(maxHeight);
+					txtArea.css({'overflow':'visible'});
+				}
+				
+			};	
+			
+			fakeDiv.css({
+					"overflow" : "visible",
+					"display" : "none",
+					"word-wrap":"break-word",
+					"padding" : txtArea.css('padding'),
+					"width": txtArea.css('width'),
+					"font-family": txtArea.css('font-family'),
+					"font-size" : txtArea.css('font-size'),
+					"line-height": txtArea.css('line-height')
+			});	
+			
+			// Style the textarea
+			txtArea.css({"overflow" : "hidden"});
+			txtArea.css({"min-height" : this.rows+"em"});
+			txtArea.keyup(reloadText);
+		});
+	}
+})(jQuery);
 
-		var growTextarea = function () {
-			sendContentToMirror(this);
-		}
-
-		// Create a mirror
-		var mirror = createMirror(this);
-		
-		// Style the mirror
-		mirror.style.display = 'none';
-		mirror.style.wordWrap = 'break-word';
-		mirror.style.padding = jQuery(this).css('padding');
-		mirror.style.width = jQuery(this).css('width');
-		mirror.style.fontFamily = jQuery(this).css('font-family');
-		mirror.style.fontSize = jQuery(this).css('font-size');
-		mirror.style.lineHeight = jQuery(this).css('line-height');
-
-		// Style the textarea
-		this.style.overflow = "hidden";
-		this.style.minHeight = this.rows+"em";
-
-		// Bind the textarea's event
-		this.onkeyup = growTextarea;
-
-		// Fire the event for text already present
-		sendContentToMirror(this);
-
-	});
-};
