@@ -24,7 +24,7 @@ jQuery.fn.autoGrow = function() {
 		}
 
 		var sendContentToMirror = function (textarea) {
-			mirror.innerHTML = textarea.value.replace(/\n/g, '.<br/>.');
+			mirror.innerHTML = textarea.value.replace(/\n/g, '.<br/>.') + '.';
 			if (jQuery(textarea).height() != jQuery(mirror).height())
 				jQuery(textarea).height(jQuery(mirror).height());
 		}
