@@ -54,7 +54,7 @@
 			// Style the textarea
 			txtArea.css({"overflow" : "hidden"});
 			txtArea.css({"min-height" : this.rows+"em"});
-			txtArea.keyup(reloadText);
+			txtArea.change(reloadText);
 		});
 	}
 })(jQuery);
