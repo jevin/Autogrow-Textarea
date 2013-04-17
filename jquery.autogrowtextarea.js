@@ -40,6 +40,7 @@ jQuery.fn.autoGrow = function() {
 		// Style the mirror
 		mirror.style.display = 'none';
 		mirror.style.wordWrap = 'break-word';
+		mirror.style.whiteSpace = 'normal';
 		mirror.style.padding = jQuery(this).css('padding');
 		mirror.style.width = jQuery(this).css('width');
 		mirror.style.fontFamily = jQuery(this).css('font-family');
