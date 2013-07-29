@@ -28,7 +28,7 @@ jQuery.fn.autoGrow = function() {
 
 			var maxHeight = parseInt(jQuery(textarea).css('max-height'), 10);
 
-			if (jQuery(mirror).height() <= maxHeight) {
+			if (isNaN(maxHeight) || jQuery(mirror).height() <= maxHeight) {
 				if (jQuery(textarea).height() != jQuery(mirror).height())
 					jQuery(textarea).height(jQuery(mirror).height());
 			}
