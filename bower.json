@@ -1,0 +1,8 @@
+{
+  "name": "autogrow-textarea",
+  "version": "3.1.0",
+  "main": "jquery.autogrowtextarea.js",
+  "dependencies": {
+    "jquery": ">=1.8"
+  }
+}
