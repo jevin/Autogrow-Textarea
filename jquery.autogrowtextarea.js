@@ -19,7 +19,13 @@ jQuery.fn.autoGrow = function() {
 	return this.each(function() {
 
 		var createMirror = function(textarea) {
-			jQuery(textarea).after('<div class="autogrow-textarea-mirror"></div>');
+			var transitions = {
+                		'-webkit-transition': 'all 350ms linear',
+                		'-moz-transition': 'all 350ms linear',
+		                '-o-transition': 'all 350ms linear',
+		                'transition': 'all 350ms linear'
+	        	};
+	        	jQuery(textarea).after('<div class="autogrow-textarea-mirror"></div>').css(transitions);
 			return jQuery(textarea).next('.autogrow-textarea-mirror')[0];
 		}
 
