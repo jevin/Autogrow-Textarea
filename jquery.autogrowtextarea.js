@@ -24,7 +24,16 @@ jQuery.fn.autoGrow = function() {
 		}
 
 		var sendContentToMirror = function (textarea) {
-			mirror.innerHTML = String(textarea.value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br />') + '.<br/>.';
+			mirror.innerHTML = String(textarea.value)
+				.replace(/&/g, '&amp;')
+				.replace(/"/g, '&quot;')
+				.replace(/'/g, '&#39;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/ /g, '&nbsp;')
+				.replace(/\n/g, '<br />') +
+				'.<br/>.'
+			;
 
 			if (jQuery(textarea).height() != jQuery(mirror).height())
 				jQuery(textarea).height(jQuery(mirror).height());
