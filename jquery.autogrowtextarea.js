@@ -32,7 +32,7 @@ jQuery.fn.autoGrow = function() {
 				.replace(/>/g, '&gt;')
 				.replace(/ /g, '&nbsp;')
 				.replace(/\n/g, '<br />') +
-				'.<br/>.'
+				''
 			;
 
 			if (jQuery(textarea).height() != jQuery(mirror).height())
