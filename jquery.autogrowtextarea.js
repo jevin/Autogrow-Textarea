@@ -1,4 +1,4 @@
-/*
+/*!
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
  * <jevin9@gmail.com> wrote this file. As long as you retain this notice you
@@ -15,8 +15,11 @@
  * Date: October 15, 2012
  */
 
-jQuery.fn.autoGrow = function() {
+jQuery.fn.autoGrow = function(options) {
 	return this.each(function() {
+		var settings = $.extend({
+			extraLine: true,
+		}, options);
 
 		var createMirror = function(textarea) {
 			jQuery(textarea).after('<div class="autogrow-textarea-mirror"></div>');
@@ -32,7 +35,7 @@ jQuery.fn.autoGrow = function() {
 				.replace(/>/g, '&gt;')
 				.replace(/ /g, '&nbsp;')
 				.replace(/\n/g, '<br />') +
-				'.<br/>.'
+				(settings.extraLine? '.<br/>.' : '')
 			;
 
 			if (jQuery(textarea).height() != jQuery(mirror).height())

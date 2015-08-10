@@ -35,7 +35,9 @@
 	<script src="jquery.autogrowtextarea.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("#target").autoGrow();
+			$("#target").autoGrow({
+				extraLine: true // Adds an extra line at the end of the textarea. Try both and see what works best for you.
+			});
 		});
 	</script>
 </head>
