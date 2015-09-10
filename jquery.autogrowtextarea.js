@@ -17,7 +17,7 @@
 
 jQuery.fn.autoGrow = function(options) {
 	return this.each(function() {
-		var settings = $.extend({
+		var settings = jQuery.extend({
 			extraLine: true,
 		}, options);
 
