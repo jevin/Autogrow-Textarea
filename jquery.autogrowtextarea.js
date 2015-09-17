@@ -53,7 +53,11 @@ jQuery.fn.autoGrow = function(options) {
 		mirror.style.display = 'none';
 		mirror.style.wordWrap = 'break-word';
 		mirror.style.whiteSpace = 'normal';
-		mirror.style.padding = jQuery(this).css('padding');
+		mirror.style.padding = jQuery(this).css('paddingTop') + ' ' + 
+			jQuery(this).css('paddingRight') + ' ' + 
+			jQuery(this).css('paddingBottom') + ' ' + 
+			jQuery(this).css('paddingLeft');
+			
 		mirror.style.width = jQuery(this).css('width');
 		mirror.style.fontFamily = jQuery(this).css('font-family');
 		mirror.style.fontSize = jQuery(this).css('font-size');
