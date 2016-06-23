@@ -70,6 +70,7 @@ jQuery.fn.autoGrow = function(options) {
 
 		// Bind the textarea's event
 		this.onkeyup = growTextarea;
+		this.onfocus = growTextarea;
 
 		// Fire the event for text already present
 		sendContentToMirror(this);
