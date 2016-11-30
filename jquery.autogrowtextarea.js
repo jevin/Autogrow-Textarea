@@ -33,7 +33,6 @@ jQuery.fn.autoGrow = function(options) {
 				.replace(/'/g, '&#39;')
 				.replace(/</g, '&lt;')
 				.replace(/>/g, '&gt;')
-				.replace(/ /g, '&nbsp;')
 				.replace(/\n/g, '<br />') +
 				(settings.extraLine? '.<br/>.' : '')
 			;
@@ -52,11 +51,21 @@ jQuery.fn.autoGrow = function(options) {
 		// Style the mirror
 		mirror.style.display = 'none';
 		mirror.style.wordWrap = 'break-word';
-		mirror.style.whiteSpace = 'normal';
+		mirror.style.whiteSpace = 'pre-wrap';
 		mirror.style.padding = jQuery(this).css('paddingTop') + ' ' + 
 			jQuery(this).css('paddingRight') + ' ' + 
 			jQuery(this).css('paddingBottom') + ' ' + 
 			jQuery(this).css('paddingLeft');
+
+		mirror.style.borderStyle = jQuery(this).css('borderTopStyle') + ' ' + 
+			jQuery(this).css('borderRightStyle') + ' ' + 
+			jQuery(this).css('borderBottomStyle') + ' ' + 
+			jQuery(this).css('borderLeftStyle');
+
+		mirror.style.borderWidth = jQuery(this).css('borderTopWidth') + ' ' + 
+			jQuery(this).css('borderRightWidth') + ' ' + 
+			jQuery(this).css('borderBottomWidth') + ' ' + 
+			jQuery(this).css('borderLeftWidth');
 			
 		mirror.style.width = jQuery(this).css('width');
 		mirror.style.fontFamily = jQuery(this).css('font-family');
