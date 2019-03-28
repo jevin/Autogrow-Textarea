@@ -1,13 +1,13 @@
 {
   "name": "autogrow-textarea",
   "version": "3.1.0",
-  "homepage": "https://github.com/radiok/Autogrow-Textarea",
+  "homepage": "https://github.com/jevin/Autogrow-Textarea",
   "author": {
     "name": "Jevin Sew",
-    "url": "http://www.technoreply.com/"
+    "url": "https://github.com/jevin/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/radiok/Autogrow-Textarea.git"
+    "url": "https://github.com/jevin/Autogrow-Textarea.git"
   }
 }
